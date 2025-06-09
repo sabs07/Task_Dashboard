@@ -1,0 +1,92 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.summarySection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 700px) {
+  .summarySection {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.recentSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 900px) {
+  .recentSection {
+    flex-direction: row;
+  }
+}
+
+.chartsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 900px) {
+  .chartsSection {
+    flex-direction: row;
+  }
+}
+
+.quickAddForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.input {
+  padding: 0.75rem 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  width: 100%;
+  background: #fff;
+  color: #171717;
+  transition: border 0.2s;
+}
+.input:focus {
+  border-color: #2563eb;
+  outline: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .input {
+    background: #18181b;
+    color: #ededed;
+    border: 1px solid #333;
+  }
+}
+
+.totalLabel {
+  color: #1976d2;
+  font-weight: bold;
+}
+.completedTodayLabel {
+  color: #43a047;
+  font-weight: bold;
+}
+.pendingLabel {
+  color: #fbc02d;
+  font-weight: bold;
+}
+.overdueLabel {
+  color: #e53935;
+  font-weight: bold;
+} 

@@ -1,0 +1,40 @@
+.taskItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f3f4f6;
+  font-size: 1rem;
+}
+.title {
+  flex: 1;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.priority {
+  padding: 0.2em 0.7em;
+  border-radius: 1em;
+  font-size: 0.85em;
+  font-weight: 600;
+  text-transform: capitalize;
+  background: #e5e7eb;
+  color: #171717;
+}
+.high {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+.medium {
+  background: #fef9c3;
+  color: #b45309;
+}
+.low {
+  background: #d1fae5;
+  color: #047857;
+}
+.status {
+  font-size: 1.2em;
+  margin-left: 0.5em;
+} 
