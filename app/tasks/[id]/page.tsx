@@ -18,7 +18,7 @@ async function getTask(id: string) {
   return data;
 }
 
-export default async function TaskDetailPage({ params }: { params: { id: string } }) {
+export default async function Page({ params }: { params: { id: string } }) {
   const task = await getTask(params.id);
   if (!task) return notFound();
   return (
