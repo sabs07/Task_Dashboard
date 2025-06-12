@@ -15,6 +15,7 @@ export interface User {
   email: string;
   theme: 'light' | 'dark';
   age: number;
+  defaultPriority: 'high' | 'medium' | 'low';
 }
 
 export interface TaskStats {

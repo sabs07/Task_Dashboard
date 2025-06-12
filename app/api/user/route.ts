@@ -7,6 +7,7 @@ let user: User = {
   email: 'john@example.com',
   theme: 'light',
   defaultPriority: 'medium',
+  age: 30
 };
 
 export async function GET() {
