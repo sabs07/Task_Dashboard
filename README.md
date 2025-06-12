@@ -70,6 +70,11 @@
 ## Project Structure
 
 ```
+<<<<<<< HEAD
+=======
+## Flow Of Project
+
+>>>>>>> d4d1803935b9ec5e116ce6c1f244184267df3b98
 /task-dashboard
 │
 ├── app/                # Next.js App Router pages and API routes
