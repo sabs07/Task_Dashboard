@@ -1,0 +1,346 @@
+Task Dashboard – In-Depth Project Documentation
+==============================================
+
+1. Introduction
+---------------
+Task Dashboard is a modern, full-featured task management web application built with Next.js 14+ (App Router), React, and TypeScript. It is designed to provide a seamless, performant, and visually appealing experience for managing tasks, tracking productivity, and customizing user preferences. The project demonstrates best practices in SSR, SEO, state management, UI/UX, and modern frontend architecture.
+
+2. Motivation & Vision
+----------------------
+The goal of this project is to:
+- Showcase advanced Next.js (App Router) and React patterns.
+- Build a real-world, production-grade dashboard with SSR, SEO, and dynamic routing.
+- Provide a beautiful, accessible, and responsive user interface.
+- Demonstrate a reusable design system and component-driven development.
+- Enable easy customization and extension for future features.
+
+3. Core Features
+----------------
+- **Server-Side Rendering (SSR):** All main pages use SSR for fast load times and SEO.
+- **SEO Optimization:** Meta tags, Open Graph, and canonical URLs for discoverability.
+- **Dark/Light Theme:** User can toggle and persist their preferred theme.
+- **Interactive Charts:** Pie, Bar, and Line charts visualize task data.
+- **Skeleton Loading:** Shimmer effects for async data fetching.
+- **Toast Notifications:** Feedback for all user actions (add, edit, delete, save).
+- **Reusable Components:** Card, Button, Modal, Skeleton, ThemeToggle, etc.
+- **Profile Management:** User can update name, email, default priority, and theme.
+- **Dynamic Routing:** Task details available at `/tasks/[id]`.
+- **Framer Motion Animations:** Smooth transitions for modals, cards, and pages.
+- **Accessibility:** Keyboard navigation, ARIA labels, and color contrast.
+- **Responsive Design:** Works on desktop, tablet, and mobile.
+
+4. Technology Stack
+-------------------
+- **Framework:** Next.js 14+ (App Router)
+- **Language:** TypeScript
+- **UI:** React, CSS Modules, Framer Motion
+- **State Management:** React Context API
+- **Charts:** Recharts (or similar)
+- **Notifications:** react-hot-toast
+- **Testing:** (Add your framework if used)
+- **Deployment:** Vercel (recommended)
+
+5. Project Structure
+--------------------
+/task-dashboard
+│
+├── app/                # Next.js App Router pages and API routes
+│   ├── layout.tsx      # Root layout (theme, context providers)
+│   ├── globals.css     # Global CSS (variables, resets)
+│   ├── ...             # Dashboard, tasks, profile, API routes
+│
+├── src/
+│   ├── components/     # Reusable UI components (Card, Button, Modal, etc.)
+│   ├── context/        # React Contexts (Task, User, Theme)
+│   ├── types/          # TypeScript interfaces
+│   ├── utils/          # Helper functions
+│
+├── public/             # Static assets
+├── package.json        # Project dependencies
+└── README.md           # Project documentation
+
+6. Development Process
+----------------------
+A. **Project Initialization**
+   - Bootstrapped with `create-next-app` using TypeScript.
+   - Set up ESLint, Prettier, and strict TypeScript settings.
+
+B. **Global Styles & Theming**
+   - Defined CSS variables in `globals.css` for backgrounds, text, and card colors.
+   - Implemented a `ThemeProvider` and `useTheme` hook for toggling and persisting theme.
+
+C. **Design System**
+   - Built reusable, accessible components: `Card`, `Button`, `Modal`, `Skeleton`, `ThemeToggle`.
+   - All UI elements use these components for consistency and maintainability.
+
+D. **State Management**
+   - Used React Context for global state:
+     - `TaskContext` for all task data and actions.
+     - `UserContext` for user profile, preferences, and theme.
+     - `ThemeContext` for theme state and toggle.
+   - Provided custom hooks for easy access and updates.
+
+E. **API & Data**
+   - Mocked backend using Next.js API routes:
+     - `/api/tasks` for CRUD operations on tasks.
+     - `/api/user` for user profile and preferences.
+   - Used fetch/async actions for all data operations.
+
+F. **Pages & Routing**
+   - Main pages: Dashboard, Tasks, Profile.
+   - Dynamic routing for task details (`/tasks/[id]`).
+
+G. **SSR & SEO**
+   - Used server components and server-side data fetching for main pages.
+   - Added meta tags, Open Graph, and canonical URLs for SEO.
+
+H. **UI/UX Enhancements**
+   - Framer Motion for card, modal, and page animations.
+   - Skeleton loaders and button spinners for async actions.
+   - Integrated `react-hot-toast` for notifications.
+
+I. **Testing & Quality**
+   - (Add details if you used unit/integration tests)
+   - Used Git for version control and clear commit history.
+
+J. **Deployment**
+   - Deployed to Vercel for production hosting.
+
+7. Design System & UI/UX
+------------------------
+- **Cards:** Used for all major sections (tasks, stats, profile).
+- **Buttons:** Primary, secondary, and loading states.
+- **Modals:** For editing/adding tasks, animated with Framer Motion.
+- **Skeletons:** Shimmer effect for loading states.
+- **Theme:** CSS variables and context for light/dark mode.
+- **Charts:** Interactive, with tooltips and legends.
+
+8. State Management
+-------------------
+- **TaskContext:** Manages all task data and actions (add, edit, delete, complete).
+- **UserContext:** Manages user profile, preferences, and theme.
+- **ThemeContext:** Handles theme state and toggle.
+
+9. API & Data Flow
+------------------
+- **/api/tasks:** GET, POST, PUT, DELETE for tasks.
+- **/api/user:** GET, PUT for user profile and preferences.
+- **Data Fetching:** Server-side for main pages, client-side for actions.
+
+10. SSR & SEO
+-------------
+- **Server Components:** Used for main pages for SSR.
+- **SEO Tags:** Title, description, Open Graph, and canonical URLs.
+
+11. Theming
+-----------
+- **ThemeProvider:** Wraps the app, provides theme context.
+- **ThemeToggle:** Button to switch between light and dark.
+- **CSS Variables:** Used for all colors and backgrounds.
+
+12. Loading States & Animations
+-------------------------------
+- **Skeletons:** For cards, lists, and charts.
+- **Button Spinners:** On form submissions.
+- **Framer Motion:** For modals, cards, and page transitions.
+
+13. Notifications
+-----------------
+- **react-hot-toast:** For all user actions (add, edit, delete, save).
+- **Consistent feedback:** On both success and error.
+
+14. Testing & Quality
+---------------------
+- **Linting:** ESLint and Prettier for code style.
+- **Type Safety:** TypeScript throughout.
+- **(Add test details if you have tests)**
+
+15. Deployment
+--------------
+- **Vercel:** Recommended for Next.js.
+- **Production build:** `npm run build` and `npm start`.
+
+16. How to Run Locally
+----------------------
+1. Clone the repo:
+   git clone https://github.com/your-username/task-dashboard.git
+   cd task-dashboard
+
+2. Install dependencies:
+   npm install
+
+3. Run the development server:
+   npm run dev
+
+4. Open in browser:
+   http://localhost:3000
+
+17. Contributing
+----------------
+1. Fork the repo
+2. Create your feature branch (git checkout -b feature/YourFeature)
+3. Commit your changes (git commit -am 'Add some feature')
+4. Push to the branch (git push origin feature/YourFeature)
+5. Open a Pull Request
+
+18. License
+-----------
+MIT
+
+19. Additional Notes
+--------------------
+- For deployment, use Vercel for best Next.js support.
+- Keep dependencies up to date and follow Next.js best practices.
+- Add screenshots, diagrams, or GIFs to this document for visual reference.
+- For questions or support, contact the project maintainer.
+
+20. Component Architecture
+-----------------------------
+- **Card:** Used for all major content blocks. Props: `children`, `className`, `style`, `animated`.
+- **Button:** Primary/secondary/danger variants, loading state.
+- **Modal:** For editing/adding tasks, uses Framer Motion for animation.
+- **ThemeToggle:** Button to switch between light and dark mode.
+- **TaskItem:** Displays a single task with status, priority, and actions.
+- **Skeleton:** Shimmer loading placeholder for cards, lists, and charts.
+- **Chart Components:** PieChart, BarChart, LineChart for analytics.
+
+21. Custom Hooks
+-------------------
+- **useTheme:** Returns current theme and a toggle function.
+- **useTasks:** Provides task list and CRUD actions.
+- **useUser:** Provides user profile and update actions.
+
+22. API Route Details
+------------------------
+#### `/api/tasks`
+- **GET:** Returns all tasks.
+- **POST:** Creates a new task. Payload: `{ title, priority, dueDate }`
+- **PUT:** Updates a task. Payload: `{ id, ...fields }`
+- **DELETE:** Deletes a task by ID.
+
+#### `/api/user`
+- **GET:** Returns user profile.
+- **PUT:** Updates user profile. Payload: `{ name, email, defaultPriority, theme }`
+
+23. Data Models
+------------------
+interface Task {
+  id: string;
+  title: string;
+  priority: 'high' | 'medium' | 'low';
+  dueDate?: string;
+  completedAt?: string;
+  status: 'pending' | 'completed' | 'overdue';
+}
+
+interface User {
+  id: string;
+  name: string;
+  email: string;
+  defaultPriority: 'high' | 'medium' | 'low';
+  theme: 'light' | 'dark';
+}
+
+24. Accessibility (a11y)
+----------------------------
+- All interactive elements are keyboard accessible.
+- ARIA labels on buttons and icons.
+- Sufficient color contrast for text and backgrounds.
+- Focus outlines and skip-to-content links (if implemented).
+
+25. Performance Optimizations
+---------------------------------
+- Server-side rendering for main pages.
+- Memoization of expensive calculations.
+- Lazy loading of charts and modals.
+
+26. Known Issues & Future Improvements
+------------------------------------------
+- Integrate with a real backend (e.g., MongoDB, PostgreSQL).
+- Add user authentication and multi-user support.
+- Mobile PWA support and offline mode.
+- More granular task filtering and sorting.
+- Add unit and integration tests for all components.
+
+27. Changelog
+-----------------
+- Initial release with SSR, SEO, theming, charts, and full CRUD.
+- Added Framer Motion animations and skeleton loaders.
+- Improved accessibility and added Profile page statistics.
+
+28. Technical Deep Dive & Code Samples
+--------------------------------------
+
+### 28.1 Context Setup Example (TaskContext)
+```tsx
+import React, { createContext, useContext, useState } from 'react';
+import { Task } from '../types/models';
+
+const TaskContext = createContext(null);
+
+export function TaskProvider({ children }) {
+  const [tasks, setTasks] = useState<Task[]>([]);
+  // ...CRUD logic here
+  return (
+    <TaskContext.Provider value={{ tasks, setTasks }}>
+      {children}
+    </TaskContext.Provider>
+  );
+}
+
+export function useTasks() {
+  return useContext(TaskContext);
+}
+```
+
+### 28.2 Reusable Component Example (Card)
+```tsx
+import React from 'react';
+import styles from './Card.module.css';
+import { motion } from 'framer-motion';
+
+export default function Card({ children, className, style, animated = true }) {
+  if (!animated) {
+    return <div className={`${styles.card} ${className || ''}`} style={style}>{children}</div>;
+  }
+  return (
+    <motion.div
+      className={`${styles.card} ${className || ''}`}
+      style={style}
+      initial={{ opacity: 0, y: 24 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.32, type: 'spring', stiffness: 120, damping: 18 }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+```
+
+### 28.3 Custom Hook Example (useTheme)
+```tsx
+import { useContext } from 'react';
+import { ThemeContext } from '../context/ThemeContext';
+
+export function useTheme() {
+  return useContext(ThemeContext);
+}
+```
+
+### 28.4 API Route Handler Example (tasks)
+```ts
+// app/api/tasks/route.ts
+import { NextResponse } from 'next/server';
+
+export async function GET() {
+  // Fetch tasks from DB or mock data
+  return NextResponse.json(tasks);
+}
+
+export async function POST(request) {
+  const data = await request.json();
+  // Add new task logic
+  return NextResponse.json({ success: true });
+}
+```
+

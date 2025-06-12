@@ -26,6 +26,7 @@ export const TaskProvider = ({ children }: { children: ReactNode }) => {
 
   const refreshTasks = async () => {
     setLoading(true);
+    await new Promise(res => setTimeout(res, 1000)); // Artificial delay for skeleton demo
     const local = localStorage.getItem('tasks');
     if (local) {
       setTasks(JSON.parse(local));
@@ -45,6 +46,8 @@ export const TaskProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const addTask = async (task: Partial<Task>) => {
+    setLoading(true);
+    await new Promise(res => setTimeout(res, 1000)); // Artificial delay for skeleton demo
     const res = await fetch('/api/tasks', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -53,9 +56,12 @@ export const TaskProvider = ({ children }: { children: ReactNode }) => {
     const newTask = await res.json();
     const updated = [newTask, ...tasks];
     persist(updated);
+    setLoading(false);
   };
 
   const updateTask = async (task: Task) => {
+    setLoading(true);
+    await new Promise(res => setTimeout(res, 1000)); // Artificial delay for skeleton demo
     // If status is not being changed to completed, preserve completedAt
     const prev = tasks.find(t => t.id === task.id);
     let updatedTask = { ...task };
@@ -75,9 +81,12 @@ export const TaskProvider = ({ children }: { children: ReactNode }) => {
     const result = await res.json();
     const updated = tasks.map(t => (t.id === result.id ? result : t));
     persist(updated);
+    setLoading(false);
   };
 
   const deleteTask = async (id: string) => {
+    setLoading(true);
+    await new Promise(res => setTimeout(res, 1000)); // Artificial delay for skeleton demo
     await fetch('/api/tasks', {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
@@ -85,6 +94,7 @@ export const TaskProvider = ({ children }: { children: ReactNode }) => {
     });
     const updated = tasks.filter(t => t.id !== id);
     persist(updated);
+    setLoading(false);
   };
 
   const markComplete = async (id: string) => {

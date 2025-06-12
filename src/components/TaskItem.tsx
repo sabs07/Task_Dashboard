@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import { Task } from '../types/models';
 import styles from './TaskItem.module.css';

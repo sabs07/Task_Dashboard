@@ -3,6 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { TaskProvider } from '../src/context/TaskContext';
 import { UserProvider } from '../src/context/UserContext';
+import { ThemeProvider } from '../src/context/ThemeContext';
+import { Toaster } from 'react-hot-toast';
+import PageTransition from '../src/components/PageTransition';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,11 +30,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <ThemeProvider>
         <UserProvider>
           <TaskProvider>
-            {children}
+            <PageTransition>
+              {children}
+            </PageTransition>
+            <Toaster position="top-right" toastOptions={{ duration: 3500 }} />
           </TaskProvider>
         </UserProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

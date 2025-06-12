@@ -1,5 +1,6 @@
 import React, { ReactNode, useEffect } from 'react';
 import styles from './Modal.module.css';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface ModalProps {
   open: boolean;
@@ -7,6 +8,18 @@ interface ModalProps {
   title?: string;
   children: ReactNode;
 }
+
+const overlayVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 },
+  exit: { opacity: 0 },
+};
+
+const modalVariants = {
+  hidden: { opacity: 0, scale: 0.95, y: 40 },
+  visible: { opacity: 1, scale: 1, y: 0 },
+  exit: { opacity: 0, scale: 0.95, y: 40 },
+};
 
 const Modal: React.FC<ModalProps> = ({ open, onClose, title, children }) => {
   useEffect(() => {
@@ -18,14 +31,33 @@ const Modal: React.FC<ModalProps> = ({ open, onClose, title, children }) => {
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [open, onClose]);
 
-  if (!open) return null;
   return (
-    <div className={styles.overlay} onClick={onClose}>
-      <div className={styles.modal} onClick={e => e.stopPropagation()}>
-        {title && <div className={styles.title}>{title}</div>}
-        <div>{children}</div>
-      </div>
-    </div>
+    <AnimatePresence>
+      {open && (
+        <motion.div
+          className={styles.overlay}
+          onClick={onClose}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+          variants={overlayVariants}
+          transition={{ duration: 0.18 }}
+        >
+          <motion.div
+            className={styles.modal}
+            onClick={e => e.stopPropagation()}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            variants={modalVariants}
+            transition={{ type: 'spring', stiffness: 320, damping: 28, duration: 0.22 }}
+          >
+            {title && <div className={styles.title}>{title}</div>}
+            <div>{children}</div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
 

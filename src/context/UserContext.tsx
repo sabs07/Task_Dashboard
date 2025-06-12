@@ -22,6 +22,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
 
   const refreshUser = async () => {
     setLoading(true);
+    await new Promise(res => setTimeout(res, 1000)); // Artificial delay for skeleton demo
     const local = localStorage.getItem('user');
     if (local) {
       setUser(JSON.parse(local));
@@ -37,6 +38,8 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
 
   const updateUser = async (data: Partial<User>) => {
     if (!user) return;
+    setLoading(true);
+    await new Promise(res => setTimeout(res, 1000)); // Artificial delay for skeleton demo
     const res = await fetch('/api/user', {
       method: 'PUT',
       body: JSON.stringify(data),
@@ -44,6 +47,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
     const updated = await res.json();
     setUser(updated);
     localStorage.setItem('user', JSON.stringify(updated));
+    setLoading(false);
   };
 
   return (

@@ -1,5 +1,5 @@
 .card {
-  background: var(--background, #fff);
+  background: var(--card-background, #fff);
   color: var(--foreground, #171717);
   border-radius: 1rem;
   box-shadow: 0 2px 12px rgba(0,0,0,0.07);
@@ -21,8 +21,14 @@
 
 @media (prefers-color-scheme: dark) {
   .card {
-    background: var(--background, #18181b);
+    background: #23272f;
     color: var(--foreground, #ededed);
     box-shadow: 0 2px 12px rgba(0,0,0,0.25);
   }
+}
+
+body.dark .card, html.dark .card {
+  background: #23272f;
+  color: var(--foreground, #ededed);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.25);
 } 
