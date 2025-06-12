@@ -65,38 +65,6 @@
 - **Framer Motion Animations:** For modals, cards, and transitions.
 - **Accessible & Responsive:** Keyboard navigation, mobile-friendly.
 
----
-
-## Project Structure
-
-<<<<<<< HEAD
-```
-<<<<<<< HEAD
-=======
-## Flow Of Project
-
-=======
->>>>>>> eb149d0da68dc71d4c8eb1dabd67d9f4c7b453db
-/task-dashboard
-│
-├── app/                # Next.js App Router pages and API routes
-│   ├── layout.tsx      # Root layout (theme, context providers)
-│   ├── globals.css     # Global CSS (variables, resets)
-│   ├── ...             # Dashboard, tasks, profile, API routes
-│
-├── src/
-│   ├── components/     # Reusable UI components (Card, Button, Modal, etc.)
-│   ├── context/        # React Contexts (Task, User, Theme)
-│   ├── types/          # TypeScript interfaces
-│   ├── utils/          # Helper functions
-│
-├── public/             # Static assets
-├── package.json        # Project dependencies
-└── README.md           # Project documentation
-```
-
----
-
 ## Development Process
 
 ### 1. **Project Initialization**
